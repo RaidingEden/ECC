@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 97,
+  "totalCommands": 101,
   "commands": [
     {
       "command": "aside",
@@ -689,6 +689,15 @@
       "path": "commands/pr.md"
     },
     {
+      "command": "project-gate",
+      "description": "Run a phase gate review on an IT systems project - audit the folder, check every exit criterion against evidence, and ask for approval to move to the next phase.",
+      "type": "review",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/project-gate.md"
+    },
+    {
       "command": "project-init",
       "description": "Detect a project's stack and produce a dry-run ECC onboarding plan using the repository's install manifests and stack mappings. Use to onboard ECC into a target project via a reviewable dry-run plan; for general feature discovery and navigation use the ecc-guide skill or /ecc-guide command instead.",
       "type": "testing",
@@ -698,6 +707,33 @@
         "ecc-guide"
       ],
       "path": "commands/project-init.md"
+    },
+    {
+      "command": "project-new",
+      "description": "Start a new IT systems project - run a short intake, create the project folder from templates, draft charter, roadmap, phases, and risks, then stop for approval of the charter.",
+      "type": "review",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/project-new.md"
+    },
+    {
+      "command": "project-report",
+      "description": "Generate a report from an IT systems project folder - weekly internal status, client-facing status update, or the closeout package (as-built, KB list, lessons learned).",
+      "type": "review",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/project-report.md"
+    },
+    {
+      "command": "project-resume",
+      "description": "Resume an IT systems project from its folder - read status, summarize where things stand, flag stale items, propose next tasks, and start working on the safe ones.",
+      "type": "review",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/project-resume.md"
     },
     {
       "command": "projects",
@@ -1064,7 +1100,7 @@
       "orchestration": 12,
       "planning": 2,
       "refactoring": 1,
-      "review": 15,
+      "review": 19,
       "testing": 53
     },
     "topAgents": [

@@ -243,7 +243,11 @@ commands:
   - pm2
   - projects
   - promote
+  - project-gate
   - project-init
+  - project-new
+  - project-report
+  - project-resume
   - pr
   - prp-commit
   - prp-implement

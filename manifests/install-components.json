@@ -171,6 +171,14 @@
       ]
     },
     {
+      "id": "capability:it-admin",
+      "family": "capability",
+      "description": "Microsoft 365 / MSP system administration and systems project delivery skills.",
+      "modules": [
+        "it-admin-ops"
+      ]
+    },
+    {
       "id": "capability:operators",
       "family": "capability",
       "description": "Connected-app operator workflows for setup audits, billing operations, program tracking, Google Workspace, and network optimization.",

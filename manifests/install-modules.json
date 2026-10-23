@@ -653,6 +653,37 @@
       "stability": "stable"
     },
     {
+      "id": "it-admin-ops",
+      "kind": "skills",
+      "description": "Microsoft 365 and MSP system administration: user lifecycle, licensing, security triage, SaaS app admin, KB writing, systems project delivery, and human-approved destructive changes.",
+      "paths": [
+        "skills/kb-article-writing",
+        "skills/m365-user-lifecycle",
+        "skills/m365-license-ops",
+        "skills/m365-security-triage",
+        "skills/saas-app-admin",
+        "skills/systems-project-ops",
+        "skills/destructive-change-approval"
+      ],
+      "targets": [
+        "claude",
+        "claude-project",
+        "cursor",
+        "antigravity",
+        "codex",
+        "copilot",
+        "opencode",
+        "codebuddy",
+        "joycode",
+        "qwen",
+        "zed"
+      ],
+      "dependencies": [],
+      "defaultInstall": false,
+      "cost": "light",
+      "stability": "beta"
+    },
+    {
       "id": "operator-workflows",
       "kind": "skills",
       "description": "Connected-app operator workflows for setup audits, billing operations, program tracking, Google Workspace, and network optimization.",
