@@ -4,6 +4,7 @@ description: Prevent Ethereum hashing bugs in JavaScript and TypeScript. Node's 
 metadata:
   version: "1.0.0"
   origin: ECC direct-port adaptation
+disable-model-invocation: true
 ---
 
 # Node.js Keccak-256

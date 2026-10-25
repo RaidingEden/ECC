@@ -1,5 +1,6 @@
 ---
 description: Run Flutter/Dart tests, report failures, and incrementally fix test issues. Covers unit, widget, golden, and integration tests.
+disable-model-invocation: true
 ---
 
 # Flutter Test

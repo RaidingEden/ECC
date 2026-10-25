@@ -37,3 +37,5 @@ jobs:
           git fetch --no-tags upstream main
       - name: Check FORK.md change log
         run: node scripts/ci/check-fork-changes.js --base upstream/main
+      - name: Check trimmed skills are still hidden
+        run: node scripts/fork-trim-skills.js --check

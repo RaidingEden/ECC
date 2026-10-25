@@ -1,5 +1,6 @@
 ---
 description: Run a backend-focused multi-model workflow for APIs, algorithms, data, and business logic.
+disable-model-invocation: true
 ---
 
 # Backend - Backend-Focused Development

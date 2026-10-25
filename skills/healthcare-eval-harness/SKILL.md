@@ -4,6 +4,7 @@ description: Patient safety evaluation harness for healthcare application deploy
 metadata:
   version: "1.0.0"
   origin: Health1 Super Speciality Hospitals — contributed by Dr. Keyur Patel
+disable-model-invocation: true
 ---
 
 # Healthcare Eval Harness — Patient Safety Verification

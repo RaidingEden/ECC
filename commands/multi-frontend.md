@@ -1,5 +1,6 @@
 ---
 description: Run a frontend-focused multi-model workflow for components, layouts, animation, and UI polish.
+disable-model-invocation: true
 ---
 
 # Frontend - Frontend-Focused Development

@@ -4,6 +4,7 @@ description: Prevent silent decimal mismatch bugs across EVM chains. Covers runt
 metadata:
   version: "1.0.0"
   origin: ECC direct-port adaptation
+disable-model-invocation: true
 ---
 
 # EVM Token Decimals

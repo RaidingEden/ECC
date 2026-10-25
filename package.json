@@ -519,6 +519,8 @@
     "carrier-closure:check": "node scripts/ci/validate-carrier-closure.js",
     "catalog:sync": "node scripts/ci/catalog.js --write --text",
     "fork:check": "node scripts/ci/check-fork-changes.js",
+    "fork:trim": "node scripts/fork-trim-skills.js",
+    "fork:trim:check": "node scripts/fork-trim-skills.js --check",
     "command-registry:generate": "node scripts/ci/generate-command-registry.js",
     "command-registry:write": "node scripts/ci/generate-command-registry.js --write",
     "command-registry:check": "node scripts/ci/generate-command-registry.js --check",

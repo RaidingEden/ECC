@@ -3,6 +3,7 @@ name: seo
 description: Audit, plan, and implement SEO improvements across technical SEO, on-page optimization, structured data, Core Web Vitals, and content strategy. Use when the user wants better search visibility, SEO remediation, schema markup, sitemap/robots work, or keyword mapping.
 metadata:
   origin: ECC
+disable-model-invocation: true
 ---
 
 # SEO
