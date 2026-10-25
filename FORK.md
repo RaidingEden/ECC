@@ -11,7 +11,7 @@ only what is different here.
 |------|----------|------|
 | IT admin kit | `m365-admin`, `project-planner`, `project-auditor` agents; `kb-article-writing`, `m365-user-lifecycle`, `m365-license-ops`, `m365-security-triage`, `saas-app-admin`, `systems-project-ops`, `destructive-change-approval` skills; `/project-new`, `/project-resume`, `/project-gate`, `/project-report` commands; install module `it-admin-ops` | [docs/IT-ADMIN-KIT.md](docs/IT-ADMIN-KIT.md), [docs/IT-PROJECT-SYSTEM-DESIGN.md](docs/IT-PROJECT-SYSTEM-DESIGN.md) |
 | Workflow skills ported from [obra/superpowers](https://github.com/obra/superpowers) (MIT) | `brainstorming`, `systematic-debugging`, `receiving-code-review`, `verification-before-completion`, in the `workflow-quality` install module | Each skill's `SKILL.md` |
-| Fork maintenance | This page, the README banner, `scripts/ci/check-fork-changes.js` (`npm run fork:check`), `.claude/rules/fork-changes.md` | This page |
+| Fork maintenance | This page, the README banner, `scripts/ci/check-fork-changes.js` (`npm run fork:check`), `.claude/rules/fork-changes.md`, GitHub workflows `fork-change-log.yml` (PR check) and `upstream-drift.yml` (weekly sync reminder) | This page |
 
 ## Change Log
 
@@ -21,6 +21,7 @@ enforces that.
 
 | Date | Change | PR / Commit | Why |
 |------|--------|-------------|-----|
+| 2026-10-24 | ci: run the fork change log check on GitHub and add a weekly upstream drift reminder | [#3](https://github.com/RaidingEden/ECC/pull/3) | `fork:check` only ran locally, and nothing flagged when upstream moved ahead. |
 | 2026-10-24 | docs: document fork changes and enforce a fork change log | [#2](https://github.com/RaidingEden/ECC/pull/2) | The README and GitHub page showed only upstream's description, so nothing said what this fork changes. |
 | 2026-10-24 | feat: port four superpowers workflow skills as ECC-native skills | [#1](https://github.com/RaidingEden/ECC/pull/1) | Adds the brainstorming, root-cause debugging, review-reception, and evidence-before-claims workflows ECC lacked, without installing superpowers alongside ECC. |
 | 2026-10-23 | feat: add IT admin kit for Microsoft 365 / MSP administration and systems projects | `14b4232b` | M365/MSP administration and end-to-end systems project work, with explicit approval for destructive changes. |
@@ -60,10 +61,19 @@ After a merge, rerun `npm run catalog:sync` (counts change when either side
 adds skills) and check that the fork-only entries above still describe what
 is here. Merge commits are not logged; only fork-authored commits are.
 
+The **Upstream Drift** workflow runs every Monday (13:00 UTC, or on demand
+from the Actions tab). It fails when upstream `main` has commits this fork
+lacks, so GitHub's failed-run email is the reminder, and its run summary lists
+the waiting commits.
+
+Upstream's own workflows (CI, release, maintenance, metrics, and so on) are
+disabled on this fork so they don't run against it; only the two fork
+workflows are active. Re-enable one with `gh workflow enable <file>`.
+
 ## Keeping This Page Current
 
 For every change to this fork:
 
 1. Add a Change Log row in the same PR: date, the commit subject (or PR title), the PR link, and why.
 2. If the change adds or removes a surface, update **What This Fork Adds**.
-3. Run `npm run fork:check` before merging. It lists any fork-only commit missing from this page.
+3. Run `npm run fork:check` before merging. It lists any fork-only commit missing from this page. The **Fork Change Log** workflow runs the same check on every PR and push to `main`.
