@@ -437,7 +437,11 @@
         "skills/rules-distill",
         "skills/santa-method",
         "skills/git-workflow",
-        "skills/conventional-commit-review"
+        "skills/conventional-commit-review",
+        "skills/brainstorming",
+        "skills/systematic-debugging",
+        "skills/receiving-code-review",
+        "skills/verification-before-completion"
       ],
       "targets": [
         "claude",

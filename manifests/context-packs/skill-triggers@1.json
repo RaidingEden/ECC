@@ -1,7 +1,7 @@
 {
   "coverage": {
-    "skills": 311,
-    "withTriggers": 33
+    "skills": 322,
+    "withTriggers": 37
   },
   "generatedAt": "2026-09-24T23:51:22.784Z",
   "id": "skill-triggers@1",
@@ -10,7 +10,7 @@
     "id": "hand-seeded",
     "source": "manual-curation-pending-regeneration"
   },
-  "registryDigest": "84533e5edad7dc9dbddbd157d4a841c8035f2661124e771dfe22ffcce8bd6459",
+  "registryDigest": "2590389ae2337ae53a0387584637b95767facc8e515da8c46e557d185a28eeb4",
   "schemaVersion": 1,
   "triggers": {
     "skill:agent-runtime-gateway-smoke-test": [
@@ -47,6 +47,13 @@
       "static file server",
       "url path handling",
       "file server"
+    ],
+    "skill:brainstorming": [
+      "help me figure out what i want",
+      "brainstorm a feature before building",
+      "design discussion before coding",
+      "clarify a vague project idea",
+      "write a design doc first"
     ],
     "skill:browser-qa": [
       "deployed feature test",
@@ -220,6 +227,13 @@
       "coverage python",
       "tdd python"
     ],
+    "skill:receiving-code-review": [
+      "respond to code review comments",
+      "address pr review feedback",
+      "reviewer suggestion seems wrong",
+      "push back on review",
+      "apply reviewer agent findings"
+    ],
     "skill:redis-patterns": [
       "cache aside pattern",
       "distributed lock",
@@ -275,6 +289,13 @@
       "hook configuration audit",
       "settings json security"
     ],
+    "skill:systematic-debugging": [
+      "find the root cause of a bug",
+      "test keeps failing and fix did not work",
+      "debug flaky test",
+      "ci only failure",
+      "stop guessing at fixes"
+    ],
     "skill:tdd-workflow": [
       "write test first",
       "failing test",
@@ -282,6 +303,13 @@
       "test driven development",
       "regression test first",
       "write a regression test"
+    ],
+    "skill:verification-before-completion": [
+      "verify before saying done",
+      "prove the tests pass",
+      "check subagent work before reporting",
+      "evidence before claiming fixed",
+      "confirm build before commit"
     ],
     "skill:verification-loop": [
       "pre pr checks",
@@ -291,5 +319,5 @@
       "before creating a pr"
     ]
   },
-  "triggersDigest": "054898acb769893c46e5bd7037141f7be83fb775515ea1dbb52fb1c18aca19e6"
+  "triggersDigest": "be512d289449b499a35c8a124243e434c4781dcc09dbd5481d53b62bc15e5e8e"
 }
