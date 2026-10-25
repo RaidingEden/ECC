@@ -1,3 +1,7 @@
+> **RaidingEden/ECC fork.** This is a customized fork of [affaan-m/ECC](https://github.com/affaan-m/ECC)
+> that adds an IT admin kit and workflow skills ported from obra/superpowers.
+> See [FORK.md](FORK.md) for what is different here and the full fork change log.
+
 <p align="center">
   <img src="assets/hero.png" alt="ECC - the agent harness operating system" width="100%" />
 </p>
