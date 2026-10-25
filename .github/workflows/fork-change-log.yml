@@ -1,0 +1,39 @@
+name: Fork Change Log
+
+# RaidingEden/ECC fork only: every commit not on affaan-m/ECC main must be
+# logged in FORK.md. See FORK.md "Keeping This Page Current".
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fork-change-log-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fork-check:
+    name: FORK.md logs every fork-only commit
+    if: github.repository == 'RaidingEden/ECC'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '20.x'
+      - name: Fetch upstream main
+        run: |
+          git remote add upstream https://github.com/affaan-m/ECC.git
+          git fetch --no-tags upstream main
+      - name: Check FORK.md change log
+        run: node scripts/ci/check-fork-changes.js --base upstream/main

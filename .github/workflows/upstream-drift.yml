@@ -1,0 +1,52 @@
+name: Upstream Drift
+
+# RaidingEden/ECC fork only: weekly reminder to sync with affaan-m/ECC.
+# The run fails when upstream main has commits this fork does not, so
+# GitHub's failed-workflow notification is the reminder. The job summary
+# lists what is waiting. See FORK.md "Syncing With Upstream".
+
+on:
+  schedule:
+    - cron: '0 13 * * 1'  # Weekly Monday 13:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    name: Fork is up to date with upstream
+    if: github.repository == 'RaidingEden/ECC'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Compare with upstream main
+        run: |
+          git remote add upstream https://github.com/affaan-m/ECC.git
+          git fetch --no-tags upstream main
+          behind=$(git rev-list --count HEAD..upstream/main)
+          ahead=$(git rev-list --count --no-merges upstream/main..HEAD)
+          {
+            echo "## Upstream drift"
+            echo ""
+            echo "- Behind affaan-m/ECC main: **${behind}** commit(s)"
+            echo "- Fork-only commits: ${ahead}"
+            if [ "$behind" -gt 0 ]; then
+              echo ""
+              echo "### Waiting upstream (newest first, up to 50)"
+              echo ""
+              git log --no-merges --format='- `%h` %s' -n 50 HEAD..upstream/main
+              echo ""
+              echo "Sync locally with \`git fetch upstream\` then \`git merge upstream/main\`,"
+              echo "then rerun \`npm run catalog:sync\` and \`npm run fork:check\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$behind" -gt 0 ]; then
+            echo "::warning::Fork is ${behind} commit(s) behind affaan-m/ECC main."
+            exit 1
+          fi
+          echo "Fork is up to date with affaan-m/ECC main."
