@@ -1,5 +1,6 @@
 ---
 description: Fix Dart analyzer errors and Flutter build failures incrementally. Invokes the dart-build-resolver agent for minimal, surgical fixes.
+disable-model-invocation: true
 ---
 
 # Flutter Build and Fix

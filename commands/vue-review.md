@@ -1,5 +1,6 @@
 ---
 description: Comprehensive Vue.js code review for Composition API correctness, reactivity, composable patterns, template security, accessibility, and Vue-specific performance. Invokes the vue-reviewer agent (and typescript-reviewer alongside on .vue/.ts changes).
+disable-model-invocation: true
 ---
 
 # Vue Code Review

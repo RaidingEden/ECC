@@ -11,6 +11,7 @@ only what is different here.
 |------|----------|------|
 | IT admin kit | `m365-admin`, `project-planner`, `project-auditor` agents; `kb-article-writing`, `m365-user-lifecycle`, `m365-license-ops`, `m365-security-triage`, `saas-app-admin`, `systems-project-ops`, `destructive-change-approval` skills; `/project-new`, `/project-resume`, `/project-gate`, `/project-report` commands; install module `it-admin-ops` | [docs/IT-ADMIN-KIT.md](docs/IT-ADMIN-KIT.md), [docs/IT-PROJECT-SYSTEM-DESIGN.md](docs/IT-PROJECT-SYSTEM-DESIGN.md) |
 | Workflow skills ported from [obra/superpowers](https://github.com/obra/superpowers) (MIT) | `brainstorming`, `systematic-debugging`, `receiving-code-review`, `verification-before-completion`, in the `workflow-quality` install module | Each skill's `SKILL.md` |
+| Trimmed skill listing | 144 skills and 23 commands outside this fork's work (other languages and frameworks, unrelated industries, crypto, marketing, video, other agent platforms, deprecated skills) carry `disable-model-invocation: true`, so they drop out of Claude's skill listing and the skills that matter keep their descriptions within the listing budget. They stay installed and run by name (`/ecc:<name>`). The list is `config/fork-skill-trim.json`; `scripts/fork-trim-skills.js` applies it (`npm run fork:trim`), checks it (`npm run fork:trim:check`), and restores one entry (`--restore <name>`). Six unused skills stay visible because upstream tests depend on their frontmatter or on routing through them; the list file names them | This page, `config/fork-skill-trim.json` |
 | Fork maintenance | This page, the README banner, `scripts/ci/check-fork-changes.js` (`npm run fork:check`), `.claude/rules/fork-changes.md`, GitHub workflows `fork-change-log.yml` (PR check) and `upstream-drift.yml` (weekly sync reminder) | This page |
 
 ## Change Log
@@ -21,6 +22,7 @@ enforces that.
 
 | Date | Change | PR / Commit | Why |
 |------|--------|-------------|-----|
+| 2026-10-25 | feat: hide unused skills and commands from the skill listing | [#4](https://github.com/RaidingEden/ECC/pull/4) | With 322 skills and 101 commands, the listing overflowed its budget and most skills, including the IT admin kit, reached Claude as bare names, so natural-language requests could miss them. `skillOverrides` doesn't apply to plugin skills and the manifest `skills` key can't exclude, so the flag goes in each skill's frontmatter from a re-runnable list. |
 | 2026-10-24 | ci: run the fork change log check on GitHub and add a weekly upstream drift reminder | [#3](https://github.com/RaidingEden/ECC/pull/3) | `fork:check` only ran locally, and nothing flagged when upstream moved ahead. |
 | 2026-10-24 | docs: document fork changes and enforce a fork change log | [#2](https://github.com/RaidingEden/ECC/pull/2) | The README and GitHub page showed only upstream's description, so nothing said what this fork changes. |
 | 2026-10-24 | feat: port four superpowers workflow skills as ECC-native skills | [#1](https://github.com/RaidingEden/ECC/pull/1) | Adds the brainstorming, root-cause debugging, review-reception, and evidence-before-claims workflows ECC lacked, without installing superpowers alongside ECC. |
@@ -59,7 +61,12 @@ git merge upstream/main
 
 After a merge, rerun `npm run catalog:sync` (counts change when either side
 adds skills) and check that the fork-only entries above still describe what
-is here. Merge commits are not logged; only fork-authored commits are.
+is here. Then run `npm run fork:trim` so the trimmed skills keep their flag
+(an upstream edit to one of those files can drop it) and the skill-triggers
+manifest's pinned registry digest is refreshed. A conflict on that digest line
+is resolved the same way: take either side, then rerun `npm run fork:trim`.
+`npm run fork:trim:check` also fails when a listed skill was renamed or
+removed upstream; update `config/fork-skill-trim.json` to match. Merge commits are not logged; only fork-authored commits are.
 
 The **Upstream Drift** workflow runs every Monday (13:00 UTC, or on demand
 from the Actions tab). It fails when upstream `main` has commits this fork

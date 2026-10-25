@@ -3,6 +3,7 @@ name: springboot-tdd
 description: Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc, Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.
 metadata:
   origin: ECC
+disable-model-invocation: true
 ---
 
 # Spring Boot TDD Workflow

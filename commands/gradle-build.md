@@ -1,5 +1,6 @@
 ---
 description: Fix Gradle build errors for Android and KMP projects
+disable-model-invocation: true
 ---
 
 # Gradle Build Fix

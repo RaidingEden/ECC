@@ -3,6 +3,7 @@ name: bun-runtime
 description: Bun as runtime, package manager, bundler, and test runner. When to choose Bun vs Node, migration notes, and Vercel support.
 metadata:
   origin: ECC
+disable-model-invocation: true
 ---
 
 # Bun Runtime

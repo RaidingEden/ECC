@@ -4,6 +4,7 @@ description: Expert guidance for developing with the tinystruct Java framework. 
 metadata:
   origin: ECC
   upstream: tinystruct==1.7.34
+disable-model-invocation: true
 ---
 
 # tinystruct Development Patterns

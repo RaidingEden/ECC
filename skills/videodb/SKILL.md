@@ -5,6 +5,7 @@ metadata:
   origin: ECC
 allowed-tools: Read Grep Glob Bash(python:*)
 argument-hint: "[task description]"
+disable-model-invocation: true
 ---
 
 # VideoDB Skill

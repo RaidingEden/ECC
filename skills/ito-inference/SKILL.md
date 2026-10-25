@@ -5,6 +5,7 @@ metadata:
   origin: ECC
   status: scaffold
   aliases: ito-serve, hosted-open-weights
+disable-model-invocation: true
 ---
 
 # Itô Inference

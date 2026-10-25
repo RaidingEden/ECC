@@ -6,6 +6,7 @@ category: frontend
 author: jeff
 metadata:
   version: 1.0.0
+disable-model-invocation: true
 ---
 
 # Motion Patterns

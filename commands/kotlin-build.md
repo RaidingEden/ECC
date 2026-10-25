@@ -1,5 +1,6 @@
 ---
 description: Fix Kotlin/Gradle build errors, compiler warnings, and dependency issues incrementally. Invokes the kotlin-build-resolver agent for minimal, surgical fixes.
+disable-model-invocation: true
 ---
 
 # Kotlin Build and Fix

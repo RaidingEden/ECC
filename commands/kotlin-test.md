@@ -1,5 +1,6 @@
 ---
 description: Enforce TDD workflow for Kotlin. Write Kotest tests first, then implement. Verify 80%+ coverage with Kover.
+disable-model-invocation: true
 ---
 
 # Kotlin TDD Command

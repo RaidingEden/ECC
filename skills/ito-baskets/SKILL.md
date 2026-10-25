@@ -4,6 +4,7 @@ description: Read-only Itô basket and prediction-market data skill. Index the l
 metadata:
   origin: ECC
   aliases: ito-basket-compare, ito-market-intelligence, ito-data-atlas-agent, ito-trade-planner
+disable-model-invocation: true
 ---
 
 # Itô Baskets

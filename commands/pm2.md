@@ -1,5 +1,6 @@
 ---
 description: Analyze a project and generate PM2 service commands for detected frontend, backend, or database services.
+disable-model-invocation: true
 ---
 
 # PM2 Init

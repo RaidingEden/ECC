@@ -9,6 +9,7 @@ metadata:
   author: evos
   clawdbot:
     emoji: ""
+disable-model-invocation: true
 ---
 
 # Customs & Trade Compliance
